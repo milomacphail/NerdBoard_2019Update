@@ -1,6 +1,6 @@
 const mongoose = require('mongoose');
 
-const profileSchema = new mongoose.Schema({
+const ProfileSchema = new mongoose.Schema({
   user: {
     type: mongoose.Schema.Types.ObjectId,
     ref: 'user'
@@ -39,8 +39,7 @@ const profileSchema = new mongoose.Schema({
         required: true
       },
       location: {
-        type: String,
-        required: true
+        type: String
       },
       from: {
         type: Date,
@@ -68,7 +67,7 @@ const profileSchema = new mongoose.Schema({
         type: String,
         required: true
       },
-      location: {
+      fieldofstudy: {
         type: String,
         required: true
       },
@@ -89,19 +88,19 @@ const profileSchema = new mongoose.Schema({
     }
   ],
   social: {
-    linkedIn: {
+    youtube: {
       type: String
     },
     twitter: {
       type: String
     },
-    youtube: {
+    facebook: {
+      type: String
+    },
+    linkedin: {
       type: String
     },
     instagram: {
-      type: String
-    },
-    facebook: {
       type: String
     }
   },
@@ -111,4 +110,4 @@ const profileSchema = new mongoose.Schema({
   }
 });
 
-module.exports = Profile = mongoose.model('profile', profileSchema);
+module.exports = Profile = mongoose.model('profile', ProfileSchema);
