@@ -4,7 +4,7 @@
   "description": "Redux of Social Network using MongoDB, Express, React/Redux, Node.js and more.",
   "main": "server.js",
   "scripts": {
-    "start": "node server",
+    "start": "nodemon server",
     "server": "nodemon server"
   },
   "repository": {
