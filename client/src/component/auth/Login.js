@@ -1,4 +1,4 @@
-import React, { Fragment, useState } from 'react';
+import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 
 export const Login = () => {
@@ -27,11 +27,18 @@ export const Login = () => {
             type="email"
             placeholder="Email Address"
             name="email"
+            onChange={e => onChange(e)}
             required
           />
         </div>
         <div className="form-group">
-          <input type="password" placeholder="Password" name="password" />
+          <input
+            type="password"
+            placeholder="Password"
+            name="password"
+            onChange={e => onChange(e)}
+            required
+          />
         </div>
         <input type="submit" className="btn btn-primary" value="Login" />
       </form>
