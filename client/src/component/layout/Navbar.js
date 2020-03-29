@@ -3,10 +3,10 @@ import { Link } from 'react-router-dom';
 
 export const Navbar = () => {
   return (
-    <nav class="navbar bg-dark">
+    <nav className="navbar bg-dark">
       <h1>
         <Link to="/">
-          <i class="fa fas-code"></i>NerdBoard
+          <i className="fa fas-code"></i>NerdBoard
         </Link>
       </h1>
       <ul>
