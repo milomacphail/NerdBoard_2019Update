@@ -1,10 +1,10 @@
-import React, { useState } from 'react';
+import React, { Fragment, useState } from 'react';
 import { Link, Redirect } from 'react-router-dom';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 import { login } from '../../actions/auth';
 
-export const Login = ({ login, isAuthenticated }) => {
+const Login = ({ login, isAuthenticated }) => {
   const [formData, setFormData] = useState({
     email: '',
     password: ''
@@ -20,16 +20,15 @@ export const Login = ({ login, isAuthenticated }) => {
     login(email, password);
   };
 
-  //Redirect upon login
   if (isAuthenticated) {
     return <Redirect to="/dashboard" />;
   }
 
   return (
-    <section className="container">
+    <Fragment>
       <h1 className="large text-primary">Sign In</h1>
       <p className="lead">
-        <i className="fas fa-user"></i>Sign into Your Account
+        <i className="fas fa-user" /> Sign Into Your Account
       </p>
       <form className="form" onSubmit={e => onSubmit(e)}>
         <div className="form-group">
@@ -37,6 +36,7 @@ export const Login = ({ login, isAuthenticated }) => {
             type="email"
             placeholder="Email Address"
             name="email"
+            value={email}
             onChange={e => onChange(e)}
             required
           />
@@ -46,8 +46,9 @@ export const Login = ({ login, isAuthenticated }) => {
             type="password"
             placeholder="Password"
             name="password"
+            value={password}
             onChange={e => onChange(e)}
-            required
+            minLength="6"
           />
         </div>
         <input type="submit" className="btn btn-primary" value="Login" />
@@ -55,7 +56,7 @@ export const Login = ({ login, isAuthenticated }) => {
       <p className="my-1">
         Don't have an account? <Link to="/register">Sign Up</Link>
       </p>
-    </section>
+    </Fragment>
   );
 };
 
@@ -64,7 +65,7 @@ Login.propTypes = {
   isAuthenticated: PropTypes.bool
 };
 
-const mapStateToProps = state => () => ({
+const mapStateToProps = state => ({
   isAuthenticated: state.auth.isAuthenticated
 });
 
